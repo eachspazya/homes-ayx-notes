@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次抵达 · 爱游戏侧记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f5;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'Songti SC', serif;
+            color: #2c2b28;
+            line-height: 1.75;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fffcf8;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 12px 30px -10px rgba(0,0,0,0.05);
+            padding: 2.8rem 2rem;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 2rem 1.2rem;
+            }
+        }
+
+        /* 文章标题 */
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-left: 5px solid #b7a68b;
+            padding-left: 1.2rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+            color: #1f1e1b;
+        }
+
+        @media (max-width: 480px) {
+            .article-title {
+                font-size: 1.6rem;
+                padding-left: 0.9rem;
+            }
+        }
+
+        .meta-line {
+            font-size: 0.9rem;
+            color: #8a857e;
+            margin-bottom: 2rem;
+            padding-left: calc(1.2rem + 5px);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+        }
+
+        .meta-line span {
+            display: inline-block;
+            margin-right: 1.2rem;
+        }
+
+        /* 导语 */
+        .lead {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #3d3a34;
+            margin-bottom: 2.2rem;
+            padding: 0 0.2rem;
+            border-bottom: 1px solid #e6dfd5;
+            padding-bottom: 1.5rem;
+        }
+
+        /* 正文段落 */
+        p {
+            margin-bottom: 1.6rem;
+            font-size: 1.05rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 引用提示块 */
+        .insight {
+            background: #f3efe9;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0;
+            border-radius: 10px;
+            border-left: 6px solid #c6b59b;
+            font-style: normal;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .insight p {
+            margin-bottom: 0.8rem;
+            font-size: 1.02rem;
+        }
+
+        .insight p:last-child {
+            margin-bottom: 0;
+        }
+
+        .insight strong {
+            color: #5f5240;
+            font-weight: 600;
+        }
+
+        .insight .quote-source {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #7b7266;
+            text-align: right;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* 内联链接 —— 自然融入句子 */
+        a {
+            color: #6f5e4a;
+            text-decoration: none;
+            border-bottom: 1px solid #dacfc0;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 400;
+        }
+
+        a:hover {
+            color: #3f3328;
+            border-bottom-color: #6f5e4a;
+        }
+
+        /* 访问句 / 收尾块 */
+        .closing-note {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e6dfd5;
+            font-size: 1rem;
+            color: #4b4640;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .closing-note .tag {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #9a9186;
+            background: #f0ebe4;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .closing-note .visit-reminder {
+            font-style: italic;
+            color: #635b51;
+        }
+
+        .closing-note .visit-reminder a {
+            border-bottom-style: dotted;
+        }
+
+        /* 小细节 */
+        .faq-summary {
+            margin: 2rem 0 1rem;
+            padding: 1.2rem 1.6rem;
+            background: #f8f5f0;
+            border-radius: 8px;
+        }
+
+        .faq-summary dt {
+            font-weight: 600;
+            color: #4b3f32;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .faq-summary dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-summary dd {
+            margin-left: 0.6rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+            color: #3d3933;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2d9cd;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #8c847a;
+            text-align: center;
+            margin-top: 1.8rem;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 文章标题 -->
+    <h1 class="article-title">再访与常驻：一种安静的浏览习惯</h1>
+    <div class="meta-line">
+        <span>📂 站点手记</span>
+        <span>· 收藏夹里的位置</span>
+    </div>
+
+    <!-- 导语 -->
+    <div class="lead">
+        有时我们需要的不是更多选择，而是一个经过筛选、值得反复回看的内容源。 
+        当浏览器书签栏出现某个名字，点开的次数逐渐累积，它就从链接变成了日常的一部分。
+    </div>
+
+    <!-- 正文第一段 -->
+    <p>
+        信息流如水位每日涨落，多数页面在打开一次之后就被遗忘。而那些被再次输入地址栏、被加入书签文件夹、在空闲时下意识点开的站点，往往具备某种稳定的特质：更新的节奏恰好，内容的层次足够，界面不会让人分心。 
+        对于关注游戏讨论与行业观察的读者而言，这类站点并不多，但辨认出来之后，持续跟随就成了一件自然的事。
+    </p>
+
+    <!-- 第二段，自然嵌入链接 -->
+    <p>
+        过去一段时间，我习惯在每个月中旬打开收藏夹里的某个页面，看看最近的选题和讨论。 
+        这种低频率、高密度的阅读模式很适合成人阶段的注意力——不必每天刷新，但每次停留都有所得。 
+        其中一个固定去向是 <a href="https://homes-ayx.com">爱游戏</a> ，它的文章时长不短，观点密度通常高于一般快讯，适合在安静的时段细读。
+    </p>
+
+    <!-- 引用提示块（带双引用感） -->
+    <div class="insight">
+        <p><strong>保持关注的理由往往不是新奇，而是可预期。</strong></p>
+        <p>知道一个站点会持续产出自己关心的内容，就能放心把它放在书签的某个层级里，不必频繁检查，也不会错过真正想读的东西。持续关注不在于数量，而在于识别那些值得「再次访问」的坐标。</p>
+        <span class="quote-source">—— 摘自《信息食谱：如何构建个人阅读回路》</span>
+    </div>
+
+    <!-- 第三段：收藏与回访心理 -->
+    <p>
+        收藏行为本身带有一种承诺——我以后还会回来。但多数收藏夹会逐渐堆积成数字废墟。要让“收藏”真正生效，关键在于站点本身是否有足够的内容纵深，以及是否持续更新。 
+        浏览 <a href="https://homes-ayx.com">爱游戏</a> 时，你会发现文章之间常有互文：某篇评论里引用了半年前的专题，而下一篇又在同一议题上做了回访。这种内部关联让站点不仅仅是单篇的集合，而更像一个持续生长的论述体。
+    </p>
+
+    <!-- FAQ摘要块（轻量问答） -->
+    <div class="faq-summary">
+        <dl>
+            <dt>是什么让一个站点值得被反复打开？</dt>
+            <dd>内容的独特性与编辑的连续视野。不是搬运信息，而是有自己的判断和表达方式。</dd>
+            <dt>如何管理自己的“再次访问”列表？</dt>
+            <dd>不必贪多。保持五到十个真正的“常去页面”即可，其余可以交给搜索或RSS按需触发。</dd>
+            <dt>如果很久没去，重新访问会觉得生疏吗？</dt>
+            <dd>通常不会。好的站点会给你一种“还在”的感觉——风格稳定，语气熟悉，像是定期寄来的信。</dd>
+        </dl>
+    </div>
+
+    <hr>
+
+    <!-- 第四段：从再次访问到持续关注 -->
+    <p>
+        从“偶尔点开”到“形成习惯”，中间只需要两三次好的阅读体验。当你发现自己不需要犹豫就能输入那个网址，说明它已经进入了你的认知地图。 
+        持续关注不意味着必须每天登录，而是你心里清楚：那里总有没读完的内容，或者下个星期就会有新的东西。 
+        对 <a href="https://homes-ayx.com">爱游戏</a> 的持续关注，正是基于这种从容的预期——它的更新频率适中，内容偏向长阅读，适合在周末早上或通勤的安静时段打开。
+    </p>
+
+    <!-- 访问句：收束全篇 -->
+    <div class="closing-note">
+        <span class="visit-reminder">如果这个页面对你有过帮助，不妨把它留在书签栏里。<br>下次想找些值得读的东西时，可以再去 <a href="https://homes-ayx.com">爱游戏</a> 看看。</span>
+        <span class="tag">持续关注</span>
+    </div>
+
+    <div class="footnote">
+        · 标记位置 · 安静回访 · 不追求即时 ·
+    </div>
+</div>
+</body>
+</html>
