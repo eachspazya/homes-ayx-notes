@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育APP · 简明使用说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e1e2a;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .page-container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        /* 卡片系统 */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e5ea;
+            border-radius: 18px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 32px 36px;
+            margin-bottom: 28px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .hero-card {
+            padding: 44px 36px 38px;
+            background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+        }
+
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: #20212b;
+            margin-bottom: 10px;
+        }
+
+        .hero-sub {
+            color: #4d5066;
+            font-size: 1.1rem;
+            font-weight: 400;
+            border-left: 3px solid #b5b9c9;
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .section-head {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2f3140;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-head::before {
+            content: "✦";
+            font-size: 1rem;
+            color: #7f839b;
+            opacity: 0.5;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 6px;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f8f9fc;
+            border-radius: 16px;
+            padding: 20px 18px;
+            border: 1px solid #e9ecf0;
+            transition: background 0.15s;
+        }
+
+        .feature-item:hover {
+            background: #f2f4f9;
+        }
+
+        .feature-item .icon {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #2a2c3a;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #4f5368;
+        }
+
+        .scene-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scene-list li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            border-bottom: 1px solid #edf0f4;
+            color: #34364a;
+        }
+
+        .scene-list li:last-child {
+            border-bottom: none;
+        }
+
+        .scene-list li::before {
+            content: "·";
+            position: absolute;
+            left: 8px;
+            color: #858aa3;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .tip-block {
+            background: #fafbfd;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-top: 12px;
+            border-left: 4px solid #bcc0d2;
+        }
+
+        .tip-block strong {
+            color: #2f3140;
+        }
+
+        .faq-mini {
+            margin-top: 16px;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            margin: 18px 0 4px 0;
+            color: #282a38;
+        }
+
+        .faq-q:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-a {
+            color: #494d63;
+            padding-left: 6px;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 28px 0 10px;
+            font-size: 0.9rem;
+            color: #7b7f96;
+            border-top: 1px solid #e2e6ec;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #2f405d;
+            text-decoration: none;
+            border-bottom: 1px solid #c6cbda;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #13141c;
+            border-bottom-color: #2f405d;
+        }
+
+        .inline-link {
+            font-weight: 500;
+            border-bottom-style: solid;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px;
+            }
+
+            .card {
+                padding: 24px 20px;
+            }
+
+            .hero-card {
+                padding: 30px 20px;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .feature-grid {
+                gap: 14px;
+            }
+
+            .feature-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <!-- hero 开场短句 -->
+    <div class="card hero-card">
+        <div class="hero-title">一份平实的指南</div>
+        <div class="hero-sub">关于星空体育APP，从了解开始，再到顺畅使用。</div>
+    </div>
+
+    <!-- 承接段落 + 简明介绍 -->
+    <div class="card">
+        <p style="margin-bottom: 18px;">
+            如果你正在寻找一个结构清晰、更新稳定的体育信息平台，那么不妨花几分钟了解 
+            <a href="https://zho-starryskyapp.com" class="inline-link">星空体育APP</a>。
+            它不是某个突变的产物，而是经过反复迭代、聚焦于体育内容整合的工具。下面的内容整理自实际使用体验与官方说明，力求平实、不夸大。
+        </p>
+        <p>
+            <strong>星空体育APP</strong> 将赛程、数据、资讯融合在统一的界面中，没有冗余的跳转，也没有刻意制造的紧迫感。你可以把它看作一个经过整理的“体育内容聚合站”，所有模块都围绕信息清晰度来设计。
+        </p>
+    </div>
+
+    <!-- 特点列表 (卡片内) -->
+    <div class="card">
+        <div class="section-head">几个值得注意的特点</div>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="icon">📋</span>
+                <h3>结构优先</h3>
+                <p>赛程、队伍、数据分栏清晰，减少查找成本。每个板块都有明确的层级。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📡</span>
+                <h3>内容节奏稳定</h3>
+                <p>更新频率经过控制，避免信息过载。重点赛事与数据保持同步，其余内容按周更节奏呈现。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🔍</span>
+                <h3>低干扰阅读</h3>
+                <p>界面中没有闪烁横幅或强制弹窗，注意力可以集中在信息本身。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📱</span>
+                <h3>响应适配</h3>
+                <p>移动端与桌面端布局各自优化，不依赖缩放。横竖屏切换时，卡片和列表自动重排。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 使用场景 + 提醒 (温和插入) -->
+    <div class="card">
+        <div class="section-head">常见使用场景</div>
+        <ul class="scene-list">
+            <li>快速浏览当天主要赛事时间线，不遗漏关注的项目</li>
+            <li>查阅队伍或选手近期数据，辅助观赛前的简单准备</li>
+            <li>阅读由编辑整理的赛事回顾，获得比赛关键节点梳理</li>
+            <li>在社区板块中浏览讨论，但注意甄别非官方信息</li>
+        </ul>
+
+        <div class="tip-block">
+            <strong>访问提醒</strong> · 由于网络环境与设备差异，部分页面加载可能受本地连接影响。如果遇到内容显示不完全，可尝试刷新或切换网络。建议保持 APP 版本为最新，以获得稳定的结构与功能支持。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (温和、克制) -->
+    <div class="card">
+        <div class="section-head">常见疑问摘要</div>
+        <div class="faq-mini">
+            <div class="faq-q">是否需要注册才能浏览内容？</div>
+            <div class="faq-a">大部分赛程与资讯可以直接浏览。部分互动功能（如评论、收藏）需要注册账户，注册流程较为简洁，提供常用邮箱即可。</div>
+
+            <div class="faq-q">数据来源是否可靠？</div>
+            <div class="faq-a">平台数据来自合作的数据提供商，并会标注更新时间。对于关键赛果，建议对照官方渠道交叉确认。</div>
+
+            <div class="faq-q">能否在平板或电脑上使用？</div>
+            <div class="faq-a">可以。除了移动端 APP，你也可以通过浏览器访问 
+                <a href="https://zho-starryskyapp.com">星空体育APP</a> 
+                的网页版，布局会根据屏幕宽度自适应。两端的账户和部分收藏数据互通。
+            </div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="card" style="padding: 28px 36px; text-align: left;">
+        <p style="margin-bottom: 0; color: #3b3e53;">
+            以上内容是对 <a href="https://zho-starryskyapp.com" class="inline-link">星空体育APP</a> 的客观整理，不包含主观推荐，也不构成任何形式的承诺。
+            体育信息的世界很丰富，工具只是帮你更清楚地看到它。希望这份说明能帮你快速了解它的结构与边界。
+        </p>
+    </div>
+
+    <div class="footer-note">
+        信息整理 · 仅供说明参考
+    </div>
+
+</div>
+</body>
+</html>
